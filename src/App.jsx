@@ -142,12 +142,18 @@ const merchants = [
 ];
 
 const marqueeItems = [
-  "PUBLIC TRIAL 10.1994",
-  "BLIND SIGNATURES",
-  "100 FREE CYBERBUCKS",
-  "ONE MILLION ISSUED",
-  "CASH ON A HARD DRIVE",
-  "POSTCARDS + SOFTWARE + INFORMATION",
+  "OLD IDEA. NEW CHAIN.",
+  "THREE NODES. ONE NETWORK.",
+  "BUILT FOR ROBINHOOD CHAIN",
+  "THE CASH BEFORE CRYPTO. BACK ONCHAIN.",
+  "PRIVACY WAS THE BEGINNING.",
+  "BUILT FROM HISTORY. MADE TO MOVE.",
+];
+
+const brandLines = [
+  "Old idea. New chain.",
+  "The cash before crypto. Back onchain.",
+  "Built from history. Made to move.",
 ];
 
 function ExternalLink({ href, children, className = "" }) {
@@ -179,7 +185,7 @@ function Navigation() {
   return (
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="CyberBucks home">
-        <span aria-hidden="true">CB</span>
+        <img src="/assets/cyberbucks-coin.png" alt="" width="40" height="40" />
         CYBERBUCKS
       </a>
       <nav className="desktop-nav" aria-label="Primary navigation">
@@ -216,29 +222,33 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <p className="eyebrow">THE CASH BEFORE CRYPTO</p>
-        <h1><span>Digital cash</span><span>existed before</span><span>Bitcoin.</span></h1>
-        <p className="hero-subhead">The true story of DigiCash's anonymous CyberBucks trial, alive on the public internet in 1994.</p>
+        <p className="eyebrow">CYBERBUCKS / ROBINHOOD CHAIN</p>
+        <h1><span>Old idea.</span><span>New chain.</span></h1>
+        <p className="hero-subhead">CyberBucks carries digital cash's first spark into a permissionless, Ethereum-compatible Layer 2 built for open, onchain finance.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#timeline">
-            Trace the story <ArrowRight aria-hidden="true" weight="bold" />
+            Meet the original <ArrowRight aria-hidden="true" weight="bold" />
           </a>
-          <a className="button button-secondary" href="#sources">Open the archive</a>
+          <ExternalLink className="button button-secondary" href="https://docs.robinhood.com/chain/">Explore the chain</ExternalLink>
         </div>
       </div>
       <figure className="hero-media">
-        <ChapterImage
-          src="/assets/chapter-hero.jpg"
-          alt="A complete 1994 desktop computer and CRT monitor displaying an early digital wallet"
-          eager
+        <img
+          src="/assets/cyberbucks-coin.png"
+          alt="CyberBucks gold coin logo with three yellow circles and the original blue branching mark"
+          width="1536"
+          height="1536"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="hero-artifact" aria-label="Original DigiCash wallet interface">
           <img src="/assets/eifig1.gif" alt="Original DigiCash eCash status window" />
-          <span>ORIGINAL CLIENT ARTIFACT</span>
+          <span>1994 / THE FIRST CYBERBUCKS</span>
         </div>
         <figcaption>
-          <span>Reconstructed period workstation</span>
-          <span>Amsterdam, the networked cash era</span>
+          <span>CYBERBUCKS COIN MARK</span>
+          <span>DESIGNED FOR ROBINHOOD CHAIN</span>
         </figcaption>
       </figure>
     </section>
@@ -255,6 +265,25 @@ function LoreMarquee() {
         ))}
       </div>
     </div>
+  );
+}
+
+function BrandManifesto() {
+  return (
+    <section className="section brand-manifesto" aria-labelledby="brand-manifesto-title">
+      <div className="brand-manifesto-intro">
+        <h2 id="brand-manifesto-title">The past had the idea. The chain gives it motion.</h2>
+        <p>Three short lines anchor the voice: historically aware, forward-moving, and grounded in what Robinhood Chain is built to enable.</p>
+      </div>
+      <div className="brand-lines" aria-label="CyberBucks brand mottos">
+        {brandLines.map((line, index) => (
+          <blockquote key={line}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>&ldquo;{line}&rdquo;</p>
+          </blockquote>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -510,15 +539,15 @@ function Footer() {
           alt="A quiet 1994 computer room at dawn with a complete workstation beside an open window"
         />
         <div className="footer-cta">
-          <p>Thirty years later, privacy still spends.</p>
-          <h2>Keep the original idea in circulation.</h2>
+          <p>Digital cash had a first chapter.</p>
+          <h2>Now give it a chain.</h2>
           <a className="button button-primary" href="#top">Return to the beginning <ArrowRight aria-hidden="true" weight="bold" /></a>
         </div>
       </div>
       <div className="footer-bottom">
         <span>CYBERBUCKS</span>
-        <span>An independent historical tribute</span>
-        <span>1994 / FOREVER</span>
+        <span>Independent project. Not affiliated with Robinhood Markets, Inc.</span>
+        <span>1994 / ONCHAIN</span>
       </div>
     </footer>
   );
@@ -613,6 +642,7 @@ export default function App() {
       <Navigation />
       <Hero />
       <LoreMarquee />
+      <BrandManifesto />
       <ProofGrid />
       <PrivacyStatement />
       <Timeline />

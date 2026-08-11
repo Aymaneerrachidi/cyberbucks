@@ -12,7 +12,8 @@
   --muted: #9da398;
   --line: rgba(242, 243, 235, 0.16);
   --line-strong: rgba(242, 243, 235, 0.34);
-  --accent: #c9f66f;
+  --accent: #f3c638;
+  --brand-blue: #174bd6;
   --mono: "IBM Plex Mono", monospace;
   --pad: clamp(1.25rem, 3vw, 3.5rem);
   --page: 1440px;
@@ -121,21 +122,16 @@ figure {
   letter-spacing: 0.12em;
 }
 
-.wordmark span {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 0.62rem;
-  letter-spacing: 0;
-  transition: color 180ms ease, background 180ms ease;
+.wordmark img {
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: opacity 180ms ease;
 }
 
-.wordmark:hover span {
-  color: var(--bg);
-  background: var(--accent);
+.wordmark:hover img {
+  opacity: 0.78;
 }
 
 .desktop-nav {
@@ -269,7 +265,7 @@ figure {
   align-self: stretch;
   overflow: hidden;
   border-left: 1px solid var(--line);
-  background: #161912;
+  background: #050505;
 }
 
 .hero-media > img {
@@ -329,6 +325,58 @@ figure {
   border-bottom: 1px solid var(--line);
   background: var(--accent);
   color: #11150d;
+}
+
+.brand-manifesto {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  padding-top: clamp(7rem, 12vw, 12rem);
+  padding-bottom: clamp(7rem, 12vw, 12rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-manifesto-intro h2 {
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 5.4vw, 6rem);
+  font-weight: 510;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.brand-manifesto-intro p {
+  max-width: 34rem;
+  margin-top: 2rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.brand-lines {
+  border-top: 1px solid var(--line-strong);
+}
+
+.brand-lines blockquote {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  margin: 0;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-lines span {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+}
+
+.brand-lines p {
+  max-width: 18ch;
+  font-size: clamp(1.7rem, 3.3vw, 3.6rem);
+  font-weight: 510;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 .marquee-track {
@@ -1295,6 +1343,7 @@ figure {
   .timeline-intro,
   .privacy-statement,
   .timeline-stage,
+  .brand-manifesto,
   .sources-layout {
     grid-template-columns: 1fr;
   }
