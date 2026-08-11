@@ -40,6 +40,16 @@ const sources = [
     detail: "A contemporary report stating one million CyberBucks were issued",
     href: "https://cordis.europa.eu/article/id/5235-itea95-awards-announced-at-eitc95",
   },
+  {
+    title: "Robinhood Chain",
+    detail: "Official overview of the permissionless Ethereum Layer 2",
+    href: "https://robinhood.com/chain",
+  },
+  {
+    title: "Robinhood Chain documentation",
+    detail: "Official network configuration and developer resources",
+    href: "https://docs.robinhood.com/chain/connecting/",
+  },
 ];
 
 const history = [
@@ -142,18 +152,24 @@ const merchants = [
 ];
 
 const marqueeItems = [
-  "OLD IDEA. NEW CHAIN.",
-  "THREE NODES. ONE NETWORK.",
+  "BORN IN 1994. BUILT FOR WHAT COMES NEXT.",
+  "THREE CIRCLES. ONE SIGNAL.",
   "BUILT FOR ROBINHOOD CHAIN",
-  "THE CASH BEFORE CRYPTO. BACK ONCHAIN.",
-  "PRIVACY WAS THE BEGINNING.",
-  "BUILT FROM HISTORY. MADE TO MOVE.",
+  "PRIVATE ROOTS. OPEN RAILS.",
+  "CASH CAME FIRST. NOW IT MOVES ONCHAIN.",
+  "FROM HARD DRIVES TO HIGH SPEED BLOCKS.",
 ];
 
 const brandLines = [
-  "Old idea. New chain.",
-  "The cash before crypto. Back onchain.",
-  "Built from history. Made to move.",
+  "Born in 1994. Built for what comes next.",
+  "Private roots. Open rails.",
+  "Cash came first. Now it moves onchain.",
+];
+
+const chainFacts = [
+  { value: "L2", label: "Ethereum compatible" },
+  { value: "4663", label: "Mainnet chain ID" },
+  { value: "ETH", label: "Native gas token" },
 ];
 
 function ExternalLink({ href, children, className = "" }) {
@@ -185,13 +201,13 @@ function Navigation() {
   return (
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="CyberBucks home">
-        <img src="/assets/cyberbucks-coin.png" alt="" width="40" height="40" />
+        <img src="/assets/cyberbucks-coin-512.png" alt="" width="40" height="40" />
         CYBERBUCKS
       </a>
       <nav className="desktop-nav" aria-label="Primary navigation">
+        <a href="#chain">The chain</a>
         <a href="#proof">The proof</a>
         <a href="#timeline">Timeline</a>
-        <a href="#merchants">What it bought</a>
       </nav>
       <a className="nav-action" href="#sources">
         Sources <ArrowRight aria-hidden="true" weight="bold" />
@@ -207,6 +223,7 @@ function Navigation() {
       </button>
       {open && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
+          <a href="#chain" onClick={() => setOpen(false)}>The chain</a>
           <a href="#proof" onClick={() => setOpen(false)}>The proof</a>
           <a href="#timeline" onClick={() => setOpen(false)}>Timeline</a>
           <a href="#merchants" onClick={() => setOpen(false)}>What it bought</a>
@@ -224,7 +241,7 @@ function Hero() {
       <div className="hero-copy">
         <p className="eyebrow">CYBERBUCKS / ROBINHOOD CHAIN</p>
         <h1><span>Old idea.</span><span>New chain.</span></h1>
-        <p className="hero-subhead">CyberBucks carries digital cash's first spark into a permissionless, Ethereum-compatible Layer 2 built for open, onchain finance.</p>
+        <p className="hero-subhead">CyberBucks carries digital cash's first spark forward as an independent community coin planned for Robinhood Chain.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#timeline">
             Meet the original <ArrowRight aria-hidden="true" weight="bold" />
@@ -270,10 +287,19 @@ function LoreMarquee() {
 
 function BrandManifesto() {
   return (
-    <section className="section brand-manifesto" aria-labelledby="brand-manifesto-title">
+    <section className="section brand-manifesto" id="chain" aria-labelledby="brand-manifesto-title">
       <div className="brand-manifesto-intro">
         <h2 id="brand-manifesto-title">The past had the idea. The chain gives it motion.</h2>
-        <p>Three short lines anchor the voice: historically aware, forward-moving, and grounded in what Robinhood Chain is built to enable.</p>
+        <p>Planned for Robinhood Chain, a permissionless Ethereum Layer 2 built on Arbitrum for open financial applications and tokenized assets.</p>
+        <div className="chain-facts" aria-label="Robinhood Chain network facts">
+          {chainFacts.map((fact) => (
+            <div key={fact.label}>
+              <strong>{fact.value}</strong>
+              <span>{fact.label}</span>
+            </div>
+          ))}
+        </div>
+        <p className="chain-disclaimer">CyberBucks is an independent project. It is not issued, sponsored, or endorsed by Robinhood Markets, Inc. or its affiliates.</p>
       </div>
       <div className="brand-lines" aria-label="CyberBucks brand mottos">
         {brandLines.map((line, index) => (
@@ -565,6 +591,20 @@ export default function App() {
       gsap.from(".hero-copy > *", { y: 34, opacity: 0, duration: 0.9, stagger: 0.09, ease: "power3.out" });
       gsap.from(".hero-media", { x: 50, opacity: 0, duration: 1.15, delay: 0.16, ease: "power3.out" });
       gsap.from(".hero-artifact", { y: 24, opacity: 0, duration: 0.8, delay: 0.8, ease: "power3.out" });
+      gsap.to(".hero-media > img", {
+        rotate: 6,
+        scale: 0.94,
+        ease: "none",
+        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+      });
+      gsap.from(".brand-lines blockquote", {
+        y: 34,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".brand-lines", start: "top 82%" },
+      });
 
       gsap.to(".nav-progress", {
         scaleX: 1,

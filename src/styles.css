@@ -125,13 +125,14 @@ figure {
 .wordmark img {
   width: 2.35rem;
   height: 2.35rem;
-  object-fit: cover;
-  border-radius: 50%;
-  transition: opacity 180ms ease;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 199, 41, 0.18));
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
 .wordmark:hover img {
   opacity: 0.78;
+  transform: rotate(8deg);
 }
 
 .desktop-nav {
@@ -349,6 +350,48 @@ figure {
   margin-top: 2rem;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.chain-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.chain-facts > div {
+  min-width: 0;
+  padding: 1.25rem 1rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.chain-facts strong,
+.chain-facts span {
+  display: block;
+}
+
+.chain-facts strong {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-weight: 600;
+}
+
+.chain-facts span {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.brand-manifesto-intro .chain-disclaimer {
+  margin-top: 1.25rem;
+  color: #6f756b;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  line-height: 1.55;
 }
 
 .brand-lines {
@@ -1461,6 +1504,10 @@ figure {
   .hero-actions,
   .hero-actions .button {
     width: 100%;
+  }
+
+  .chain-facts {
+    grid-template-columns: 1fr;
   }
 
   .hero-artifact {

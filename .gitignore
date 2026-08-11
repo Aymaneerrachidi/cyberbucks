@@ -4,6 +4,10 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+public/assets/*-chroma.png
+public/assets/cyberbucks-coin-logo.png
+public/assets/cyberbucks-banner-1500x500.png
+public/assets/social/
 .env
 .env.*
 !.env.example
