@@ -180,8 +180,7 @@ const chainFacts = [
   { value: "ETH", label: "Native gas token" },
 ];
 
-// Add the verified contract address here when it is ready to publish.
-const contractAddress = "";
+const contractAddress = "0xe84D5bDF884f2845b8861E93C3323C811D426dd6";
 
 function XSocialIcon() {
   return (
