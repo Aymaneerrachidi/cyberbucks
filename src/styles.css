@@ -229,6 +229,85 @@ figure {
   margin-top: 2.1rem;
 }
 
+.contract-address {
+  width: min(100%, 34rem);
+  margin-top: 2.3rem;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+
+.contract-address-heading,
+.contract-address-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contract-address-heading {
+  padding: 0.75rem 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contract-address-heading span:first-child {
+  color: var(--accent);
+}
+
+.contract-address-value {
+  min-height: 3.4rem;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.contract-address-value code {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contract-address-value button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.3rem;
+  padding: 0 0 0 1rem;
+  border: 0;
+  border-left: 1px solid var(--line);
+  color: var(--accent);
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.contract-address-value button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.contract-address-value button:not(:disabled):hover {
+  color: var(--ink);
+}
+
+.contract-address-value button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .button {
   display: inline-flex;
   min-height: 50px;
@@ -1508,6 +1587,10 @@ figure {
 
   .hero-actions,
   .hero-actions .button {
+    width: 100%;
+  }
+
+  .contract-address {
     width: 100%;
   }
 

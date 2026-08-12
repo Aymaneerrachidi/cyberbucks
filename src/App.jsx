@@ -3,6 +3,8 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
+  Check,
+  Copy,
   EyeSlash,
   HardDrives,
   List,
@@ -177,6 +179,9 @@ const chainFacts = [
   { value: "ETH", label: "Native gas token" },
 ];
 
+// Add the verified contract address here when it is ready to publish.
+const contractAddress = "";
+
 function ExternalLink({ href, children, className = "" }) {
   return (
     <a className={className} href={href} target="_blank" rel="noreferrer">
@@ -241,6 +246,15 @@ function Navigation() {
 }
 
 function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const copyContractAddress = async () => {
+    if (!contractAddress) return;
+    await navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1800);
+  };
+
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
@@ -252,6 +266,24 @@ function Hero() {
             Meet the original <ArrowRight aria-hidden="true" weight="bold" />
           </a>
           <ExternalLink className="button button-secondary" href="https://docs.robinhood.com/chain/">Explore the chain</ExternalLink>
+        </div>
+        <div className="contract-address" id="contract" aria-label="CyberBucks contract address">
+          <div className="contract-address-heading">
+            <span>Contract address</span>
+            <span>Robinhood Chain</span>
+          </div>
+          <div className="contract-address-value">
+            <code aria-label={contractAddress || "Contract address not published"}>{contractAddress}</code>
+            <button
+              type="button"
+              onClick={copyContractAddress}
+              disabled={!contractAddress}
+              aria-label={contractAddress ? "Copy contract address" : "Contract address not published yet"}
+            >
+              {copied ? <Check aria-hidden="true" weight="bold" /> : <Copy aria-hidden="true" weight="bold" />}
+              <span>{copied ? "Copied" : contractAddress ? "Copy" : "Pending"}</span>
+            </button>
+          </div>
         </div>
       </div>
       <figure className="hero-media">
