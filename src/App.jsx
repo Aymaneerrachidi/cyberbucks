@@ -9,6 +9,7 @@ import {
   HardDrives,
   List,
   ShieldCheck,
+  TelegramLogo,
   X,
 } from "@phosphor-icons/react";
 import { gsap } from "gsap";
@@ -182,6 +183,14 @@ const chainFacts = [
 // Add the verified contract address here when it is ready to publish.
 const contractAddress = "";
 
+function XSocialIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+    </svg>
+  );
+}
+
 function ExternalLink({ href, children, className = "" }) {
   return (
     <a className={className} href={href} target="_blank" rel="noreferrer">
@@ -219,9 +228,19 @@ function Navigation() {
         <a href="#proof">The proof</a>
         <a href="#chain">The chain</a>
       </nav>
-      <a className="nav-action" href="#sources">
-        Sources <ArrowRight aria-hidden="true" weight="bold" />
-      </a>
+      <div className="nav-end">
+        <div className="social-nav" aria-label="CyberBucks social media">
+          <a href="https://x.com/cyberbucksrh?s=11" target="_blank" rel="noreferrer" aria-label="CyberBucks on X">
+            <XSocialIcon />
+          </a>
+          <a href="https://t.me/cyberbucksrh" target="_blank" rel="noreferrer" aria-label="CyberBucks on Telegram">
+            <TelegramLogo aria-hidden="true" weight="fill" />
+          </a>
+        </div>
+        <a className="nav-action" href="#sources">
+          Sources <ArrowRight aria-hidden="true" weight="bold" />
+        </a>
+      </div>
       <button
         className="menu-button"
         type="button"
@@ -238,6 +257,14 @@ function Navigation() {
           <a href="#chain" onClick={() => setOpen(false)}>The chain</a>
           <a href="#merchants" onClick={() => setOpen(false)}>What it bought</a>
           <a href="#sources" onClick={() => setOpen(false)}>Sources</a>
+          <div className="mobile-social-nav" aria-label="CyberBucks social media">
+            <a href="https://x.com/cyberbucksrh?s=11" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
+              <XSocialIcon /> X
+            </a>
+            <a href="https://t.me/cyberbucksrh" target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
+              <TelegramLogo aria-hidden="true" weight="fill" /> Telegram
+            </a>
+          </div>
         </nav>
       )}
       <span className="nav-progress" aria-hidden="true" />

@@ -147,6 +147,41 @@ figure {
   transition: color 180ms ease;
 }
 
+.nav-end,
+.social-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-end {
+  justify-self: end;
+  gap: 1.25rem;
+}
+
+.social-nav {
+  gap: 0.2rem;
+  padding-right: 1.1rem;
+  border-right: 1px solid var(--line);
+}
+
+.social-nav a {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: #d0d4ca;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.social-nav a:hover {
+  color: var(--accent);
+}
+
+.social-nav svg {
+  width: 1.08rem;
+  height: 1.08rem;
+}
+
 .desktop-nav a:hover,
 .nav-action:hover {
   color: var(--accent);
@@ -169,6 +204,28 @@ figure {
 .menu-button,
 .mobile-nav {
   display: none;
+}
+
+.mobile-social-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.mobile-social-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 0;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+
+.mobile-social-nav svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .hero {
@@ -1402,7 +1459,7 @@ figure {
   }
 
   .desktop-nav,
-  .nav-action {
+  .nav-end {
     display: none;
   }
 
