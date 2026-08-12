@@ -173,7 +173,7 @@ figure {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
   min-height: 100svh;
   padding-top: 72px;
@@ -186,8 +186,8 @@ figure {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: min(100%, 760px);
-  padding: clamp(4rem, 8vw, 8.5rem) clamp(2rem, 6vw, 7.5rem) clamp(4rem, 7vw, 7rem) max(var(--pad), calc((100vw - var(--page)) / 2 + var(--pad)));
+  width: min(100%, 850px);
+  padding: clamp(4rem, 8vw, 8.5rem) clamp(2rem, 4vw, 4.5rem) clamp(4rem, 7vw, 7rem) max(var(--pad), calc((100vw - var(--page)) / 2 + var(--pad)));
 }
 
 .eyebrow,
@@ -201,11 +201,12 @@ figure {
 }
 
 .hero h1 {
-  max-width: 10ch;
-  font-size: clamp(3.5rem, 6.1vw, 6.7rem);
+  max-width: 13ch;
+  font-size: clamp(3.35rem, 4.45vw, 5.15rem);
   font-weight: 520;
   letter-spacing: -0.06em;
   line-height: 0.87;
+  text-transform: uppercase;
 }
 
 .hero h1 span {
@@ -1276,7 +1277,7 @@ figure {
 
 @media (max-width: 1100px) {
   .hero {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
   }
 
   .hero-copy {
@@ -1284,7 +1285,7 @@ figure {
   }
 
   .hero h1 {
-    font-size: clamp(3.6rem, 7.8vw, 6rem);
+    font-size: clamp(3rem, 4.8vw, 4.2rem);
   }
 
   .proof-card-supply {
@@ -1367,8 +1368,8 @@ figure {
   }
 
   .hero h1 {
-    max-width: 9ch;
-    font-size: clamp(3.7rem, 15vw, 7rem);
+    max-width: 13ch;
+    font-size: clamp(3rem, 10vw, 5.2rem);
   }
 
   .hero-media {
@@ -1498,7 +1499,11 @@ figure {
   }
 
   .hero h1 {
-    font-size: clamp(3.15rem, 15.5vw, 5.2rem);
+    font-size: clamp(2.35rem, 10vw, 3.6rem);
+  }
+
+  .hero h1 span {
+    white-space: normal;
   }
 
   .hero-actions,

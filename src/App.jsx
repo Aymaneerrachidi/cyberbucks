@@ -31,6 +31,11 @@ const sources = [
     href: "https://chaum.com/wp-content/uploads/2022/01/Chaum-blind-signatures.pdf",
   },
   {
+    title: "Bitcoin: A Peer-to-Peer Electronic Cash System",
+    detail: "The 2008 white paper that arrived fourteen years after the CyberBucks trial began",
+    href: "https://bitcoin.org/bitcoin.pdf",
+  },
+  {
     title: "Scaleable, Secure Cash Payment for WWW Resources",
     detail: "A 1995 account of the trial and its 100 CyberBuck allocation",
     href: "https://www.w3.org/Conferences/WWW4/Papers/228/",
@@ -152,18 +157,18 @@ const merchants = [
 ];
 
 const marqueeItems = [
-  "BORN IN 1994. BUILT FOR WHAT COMES NEXT.",
+  "BEFORE BITCOIN, THERE WAS CYBERBUCKS.",
   "THREE CIRCLES. ONE SIGNAL.",
-  "BUILT FOR ROBINHOOD CHAIN",
-  "PRIVATE ROOTS. OPEN RAILS.",
-  "CASH CAME FIRST. NOW IT MOVES ONCHAIN.",
-  "FROM HARD DRIVES TO HIGH SPEED BLOCKS.",
+  "DIGITAL CURRENCY HISTORY SINCE 1994.",
+  "BLIND SIGNATURES. PUBLIC TRIAL. REAL RECEIPTS.",
+  "NOW THE STORY COMES ALIVE ON ROBINHOOD CHAIN.",
+  "A 1994 NAME. A NEW COMMUNITY CHAPTER.",
 ];
 
 const brandLines = [
-  "Born in 1994. Built for what comes next.",
-  "Private roots. Open rails.",
-  "Cash came first. Now it moves onchain.",
+  "Before Bitcoin, there was CyberBucks.",
+  "Now the story comes alive on Robinhood Chain.",
+  "Digital currency history returns to the timeline.",
 ];
 
 const chainFacts = [
@@ -205,9 +210,9 @@ function Navigation() {
         CYBERBUCKS
       </a>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        <a href="#chain">The chain</a>
+        <a href="#timeline">The history</a>
         <a href="#proof">The proof</a>
-        <a href="#timeline">Timeline</a>
+        <a href="#chain">The chain</a>
       </nav>
       <a className="nav-action" href="#sources">
         Sources <ArrowRight aria-hidden="true" weight="bold" />
@@ -223,9 +228,9 @@ function Navigation() {
       </button>
       {open && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <a href="#chain" onClick={() => setOpen(false)}>The chain</a>
+          <a href="#timeline" onClick={() => setOpen(false)}>The history</a>
           <a href="#proof" onClick={() => setOpen(false)}>The proof</a>
-          <a href="#timeline" onClick={() => setOpen(false)}>Timeline</a>
+          <a href="#chain" onClick={() => setOpen(false)}>The chain</a>
           <a href="#merchants" onClick={() => setOpen(false)}>What it bought</a>
           <a href="#sources" onClick={() => setOpen(false)}>Sources</a>
         </nav>
@@ -239,9 +244,9 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <p className="eyebrow">CYBERBUCKS / ROBINHOOD CHAIN</p>
-        <h1><span>Old idea.</span><span>New chain.</span></h1>
-        <p className="hero-subhead">CyberBucks carries digital cash's first spark forward as an independent community coin planned for Robinhood Chain.</p>
+        <p className="eyebrow">Before Bitcoin, there was CyberBucks.</p>
+        <h1><span>History of</span><span>digital currency</span></h1>
+        <p className="hero-subhead">A 1994 digital-cash name returns as an independent community coin planned for Robinhood Chain.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#timeline">
             Meet the original <ArrowRight aria-hidden="true" weight="bold" />
@@ -289,8 +294,8 @@ function BrandManifesto() {
   return (
     <section className="section brand-manifesto" id="chain" aria-labelledby="brand-manifesto-title">
       <div className="brand-manifesto-intro">
-        <h2 id="brand-manifesto-title">The past had the idea. The chain gives it motion.</h2>
-        <p>Planned for Robinhood Chain, a permissionless Ethereum Layer 2 built on Arbitrum for open financial applications and tokenized assets.</p>
+        <h2 id="brand-manifesto-title">The history comes alive on Robinhood Chain.</h2>
+        <p>CyberBucks was the trial currency used in DigiCash's public eCash experiment in 1994. This independent community project carries that documented story toward Robinhood Chain.</p>
         <div className="chain-facts" aria-label="Robinhood Chain network facts">
           {chainFacts.map((fact) => (
             <div key={fact.label}>
@@ -565,15 +570,15 @@ function Footer() {
           alt="A quiet 1994 computer room at dawn with a complete workstation beside an open window"
         />
         <div className="footer-cta">
-          <p>Digital cash had a first chapter.</p>
-          <h2>Now give it a chain.</h2>
+          <p>THE STORY STARTED BEFORE BITCOIN</p>
+          <h2>Now it comes alive on Robinhood Chain.</h2>
           <a className="button button-primary" href="#top">Return to the beginning <ArrowRight aria-hidden="true" weight="bold" /></a>
         </div>
       </div>
       <div className="footer-bottom">
         <span>CYBERBUCKS</span>
         <span>Independent project. Not affiliated with Robinhood Markets, Inc.</span>
-        <span>1994 / ONCHAIN</span>
+        <span>DIGITAL CURRENCY HISTORY / 1994</span>
       </div>
     </footer>
   );
